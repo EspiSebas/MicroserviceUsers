@@ -1,8 +1,12 @@
 package com.example.microserviceUsers.adapter.in.web.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
-import java.util.Date;
+
+import java.time.LocalDate;
 
 
 @AllArgsConstructor
@@ -14,7 +18,10 @@ public class UserDtoRequest {
     private String last;
     private int identityDocument;
     private String numberCellphone;
-    private Date dateBirthday;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate birthDate;
+    @NotBlank(message = "Email is required")
+    @Email(message = "Email format is invalid")
     private String email;
     private String password;
 

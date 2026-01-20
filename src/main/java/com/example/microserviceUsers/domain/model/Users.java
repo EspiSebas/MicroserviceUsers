@@ -1,13 +1,13 @@
 package com.example.microserviceUsers.domain.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Users {
     private String name;
     private String last;
     private int identityDocument;
-    private String numberCellphone;
-    private Date dateBirthday;
+    private String phoneNumber;
+    private LocalDate birthDate;
     private String email;
     private String password;
     private final Roles role;
@@ -16,12 +16,14 @@ public class Users {
         return role;
     }
 
-    public Users(String name, String last, int identityDocument, String numberCellphone, Date dateBirthday, String email, String password, Roles role) {
+    public Users(String name, String last, int identityDocument, String phoneNumber, LocalDate birthDate, String email, String password, Roles role) {
+
+
         this.name = name;
         this.last = last;
         this.identityDocument = identityDocument;
-        this.numberCellphone = numberCellphone;
-        this.dateBirthday = dateBirthday;
+        this.phoneNumber = phoneNumber;
+        this.birthDate = birthDate;
         this.email = email;
         this.password = password;
         this.role = role;
@@ -51,20 +53,20 @@ public class Users {
         this.identityDocument = identityDocument;
     }
 
-    public String getNumberCellphone() {
-        return numberCellphone;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setNumberCellphone(String numberCellphone) {
-        this.numberCellphone = numberCellphone;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public Date getDateBirthday() {
-        return dateBirthday;
+    public LocalDate getbirthDate() {
+        return birthDate;
     }
 
-    public void setDateBirthday(Date dateBirthday) {
-        this.dateBirthday = dateBirthday;
+    public void setbirthDate(LocalDate dateBirthday) {
+        this.birthDate = dateBirthday;
     }
 
     public String getEmail() {

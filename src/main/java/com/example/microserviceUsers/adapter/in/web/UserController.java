@@ -28,7 +28,7 @@ public class UserController {
                 userDtoRequest.getLast(),
                 userDtoRequest.getIdentityDocument(),
                 userDtoRequest.getNumberCellphone(),
-                userDtoRequest.getDateBirthday(),
+                userDtoRequest.getBirthDate(),
                 userDtoRequest.getEmail(),
                 passwordBcrypt,
                 Roles.AUX_STOCK
