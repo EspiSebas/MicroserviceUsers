@@ -51,4 +51,9 @@ public class UserRepositoryJpaAdapter implements UsersRepository {
     public Users logInUser(Users users) {
         return null;
     }
+
+    @Override
+    public boolean existsByEmail(String email) {
+        return false;
+    }
 }

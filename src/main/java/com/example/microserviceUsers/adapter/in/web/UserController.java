@@ -1,10 +1,13 @@
 package com.example.microserviceUsers.adapter.in.web;
 
+import com.example.microserviceUsers.adapter.in.web.dto.LoginDtoRequest;
 import com.example.microserviceUsers.adapter.in.web.dto.UserDtoRequest;
 import com.example.microserviceUsers.domain.model.Roles;
 import com.example.microserviceUsers.domain.model.Users;
 import com.example.microserviceUsers.domain.port.in.UserUseCase;
 
+import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,12 +17,13 @@ public class UserController {
     private final UserUseCase userUseCase;
     private PasswordEncoder passwordEncoder;
 
-    public UserController(UserUseCase userUseCase) {
+    public UserController(UserUseCase userUseCase, PasswordEncoder passwordEncoder) {
         this.userUseCase = userUseCase;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @PostMapping("createUser")
-    public void createUser(@RequestBody UserDtoRequest userDtoRequest){
+    public void createUser(@Valid @RequestBody UserDtoRequest userDtoRequest){
 
         String passwordBcrypt = passwordEncoder.encode(userDtoRequest.getPassword());
 
@@ -36,5 +40,11 @@ public class UserController {
 
         userUseCase.saveUser(user);
 
+    }
+
+
+    @PostMapping("login")
+    public void login(@Valid @RequestBody LoginDtoRequest loginDtoRequest){
+        Users user = userUseCase.ge
     }
 }
