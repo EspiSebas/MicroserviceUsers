@@ -12,6 +12,8 @@ public class Users {
     private String password;
     private final Roles role;
 
+
+
     public Roles getRole() {
         return role;
     }
