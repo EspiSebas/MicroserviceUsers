@@ -12,7 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("auth")
+@RequestMapping("/auth")
 public class UserController {
     private final UserUseCase userUseCase;
     private PasswordEncoder passwordEncoder;
@@ -43,8 +43,10 @@ public class UserController {
     }
 
 
-    @PostMapping("login")
-    public void login(@Valid @RequestBody LoginDtoRequest loginDtoRequest){
-        Users user = userUseCase.ge
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@Valid @RequestBody LoginDtoRequest loginDtoRequest){
+        String token = userUseCase.logInUser(loginDtoRequest.getEmail(),loginDtoRequest.getPassword());
+
+        return ResponseEntity.ok(token);
     }
 }

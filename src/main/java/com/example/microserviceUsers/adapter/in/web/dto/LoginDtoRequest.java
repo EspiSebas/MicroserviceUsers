@@ -11,8 +11,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class LoginDtoRequest {
-    private String email;
     @Email(message = "Email format is invalid")
+    private String email;
     private String password;
 
 }

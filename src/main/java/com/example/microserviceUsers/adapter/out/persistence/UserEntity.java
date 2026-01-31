@@ -1,5 +1,6 @@
 package com.example.microserviceUsers.adapter.out.persistence;
 
+import com.example.microserviceUsers.domain.model.Roles;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,14 +20,14 @@ public class UserEntity {
 
     private String name;
     private String last;
-    private String identityDocument;
+    private int identityDocument;
     private String phoneNumber;
     private LocalDate birthDate;
     private String email;
     private String password;
-    private String role;
+    private Roles role;
 
-    public UserEntity(Long id, String name, String last, String identityDocument, String phoneNumber, LocalDate birthDate, String email, String password, String role) {
+    public UserEntity(Long id, String name, String last, int identityDocument, String phoneNumber, LocalDate birthDate, String email, String password, Roles role) {
         this.id = id;
         this.name = name;
         this.last = last;
